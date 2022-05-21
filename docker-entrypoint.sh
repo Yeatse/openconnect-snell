@@ -13,7 +13,7 @@ obfs = ${OBFS}
 EOF
 
   cat snell.conf
-  snell-server -c snell.conf &
+  (sleep 5 && snell-server -c snell.conf) &
 
   (echo "$OC_PASSWD"; echo "${OC_AUTH_CODE}") | openconnect -v --user="${OC_USER}"  --authgroup="${OC_AUTH_GROUP}" "${OC_HOST}" --passwd-on-stdin
 }
