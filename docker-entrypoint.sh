@@ -15,7 +15,7 @@ EOF
   cat snell.conf
   (sleep 5 && snell-server -c snell.conf) &
 
-  (echo "$OC_PASSWD"; echo "${OC_AUTH_CODE}") | openconnect -v --user="${OC_USER}"  --authgroup="${OC_AUTH_GROUP}" "${OC_HOST}" --passwd-on-stdin
+  (echo "$OC_PASSWD"; echo "${OC_AUTH_CODE}") | openconnect -v --user="${OC_USER}" --authgroup="${OC_AUTH_GROUP}" ${OC_ADDITIONAL_OPTIONS} "${OC_HOST}" --passwd-on-stdin
 }
 
 if [ -z "$@" ]; then

@@ -30,6 +30,7 @@ ENV OC_PASSWD=
 ENV OC_AUTH_GROUP=
 ENV OC_AUTH_CODE=
 ENV OC_HOST=
+ENV OC_ADDITIONAL_OPTIONS=
 
 RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ openconnect
 
