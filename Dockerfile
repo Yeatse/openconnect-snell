@@ -5,7 +5,7 @@ LABEL maintainer="Yang Chao <iyeatse@gmail.com>"
 RUN apt update
 RUN apt -y install wget unzip openconnect
 
-RUN arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) \
+RUN arch=$(arch) \
   && wget -O snell-server.zip https://dl.nssurge.com/snell/snell-server-v4.0.0-linux-${arch}.zip \
   && unzip snell-server.zip \
   && mv snell-server /usr/local/bin/
