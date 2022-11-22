@@ -9,7 +9,7 @@ launch() {
 [snell-server]
 listen = ${SERVER_HOST}:${SERVER_PORT}
 psk = ${PSK}
-obfs = ${OBFS}
+ipv6 = false
 EOF
 
   cat snell.conf
