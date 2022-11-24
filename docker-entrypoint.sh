@@ -15,7 +15,7 @@ ipv6 = false
 EOF
 
   cat snell.conf
-  (sleep 5 && snell-server -c snell.conf) &
+  sleep 5 && snell-server -c snell.conf
 }
 
 if [ -z "$@" ]; then
