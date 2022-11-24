@@ -4,6 +4,8 @@ launch() {
   if [ -z "$PSK" ]; then
     PSK=`hexdump -n 16 -e '4/4 "%08x" 1 "\n"' /dev/urandom`
   fi
+  
+  (echo "$OC_PASSWD"; echo "${OC_AUTH_CODE}") | openconnect -v -b --user="${OC_USER}" --authgroup="${OC_AUTH_GROUP}" ${OC_ADDITIONAL_OPTIONS} "${OC_HOST}" --passwd-on-stdin
 
   cat > snell.conf <<EOF
 [snell-server]
@@ -14,8 +16,6 @@ EOF
 
   cat snell.conf
   (sleep 5 && snell-server -c snell.conf) &
-
-  (echo "$OC_PASSWD"; echo "${OC_AUTH_CODE}") | openconnect -v --user="${OC_USER}" --authgroup="${OC_AUTH_GROUP}" ${OC_ADDITIONAL_OPTIONS} "${OC_HOST}" --passwd-on-stdin
 }
 
 if [ -z "$@" ]; then
